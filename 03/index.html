@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Lección 03 - Eventos</title>
+
+	<!-- Importacion del jQuery -->
+	<script src="js/lib/jquery-2.1.4.min.js"></script>
+	
+	<!-- Importacion del Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+</head>
+<body>
+
+
+<div class="container">
+	
+	<h1>Lección 03: Eventos</h1>
+	<hr>
+
+<button id="miboton" type="button" class="btn btn-primary">Destacado</button>
+    <br><br>
+    <img class="imagen" src="img/profesor.jpg">
+	<br><br>
+	<a id="linkudemy" href="http://udemy.com">udemy</a>
+
+</div>
+
+
+<script>
+	
+$('#miboton').on('click',function(){
+    console.log('clik');
+});
+    
+$('.imagen').on('mouseenter',function(){
+   $(this).attr('src','img/nophoto.jpg');
+});
+    
+$('.imagen').on('mouseleave',function(){
+   $(this).attr('src','img/profesor.jpg');
+});
+
+$('#linkudemy').on('click',function(e){
+    e.preventDefault();
+    console.log("click en udemy");
+    var link = $(this).attr('href');
+    console.log(link);
+    window.location = link;
+});    
+
+$(document).ready(function(){
+    console.log("La pagina se cargocompletamente pero las imagenes no se sabe aun..");
+});
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
